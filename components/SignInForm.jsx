@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import authenticateUser from "@utils/authenticateUser";
+import signInUser from "@utils/signInUser";
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ export default function SignInForm() {
 
     try {
       // Server action
-      await authenticateUser(formData);
+      // await signInUser(formData);
 
       alert("Sign in successful!");
     } catch (error) {

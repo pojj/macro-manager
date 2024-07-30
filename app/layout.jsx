@@ -1,5 +1,10 @@
+// Hoist env imports
+import "@utils/initializeEnv.js";
+
 import { Inter } from "next/font/google";
 import "@styles/globals.css";
+
+import Nav from "@components/Nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,6 +23,7 @@ export default function RootLayout({ children }) {
         <div className="main">
           <div className="gradient" />
         </div>
+        <Nav />
         <main className="app">{children}</main>
       </body>
     </html>

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import checkFormInputs from "@utils/checkFormInputs";
-import createUser from "@utils/createUser";
+import validateSignUpForm from "@utils/validateSignUpForm";
+import signUpUser from "@utils/signUpUser";
 
 export default function SignupForm() {
   const [email, setEmail] = useState("");
@@ -25,14 +25,17 @@ export default function SignupForm() {
     };
 
     try {
-      checkFormInputs(formData);
+      validateSignUpForm(formData);
 
       // Server action
-      await createUser(formData);
+      let message = await signUpUser(formData);
+      if (message.success == false) {
+        throw new Error(message.body.error);
+      }
 
       alert("Registration successful!");
     } catch (error) {
-      // Display only 1 error at a time
+      // Display 1 error at a time
       let errors = error.message.split("\n");
       setError(errors[0]);
     }

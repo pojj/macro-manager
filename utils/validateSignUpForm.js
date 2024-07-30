@@ -1,6 +1,6 @@
 "use client";
 
-export default function checkFormInputs(formData) {
+export default function validateSignUpForm(formData) {
   const { email, password, confirmPassword, firstName, lastName } = formData;
 
   const errors = [];
