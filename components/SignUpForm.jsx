@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 
-import validateSignUpForm from "@utils/validateSignUpForm";
-import signUpUser from "@utils/signUpUser";
+import validateSignUpForm from "@lib/validateSignUpForm";
+import signUpUser from "@lib/signUpUser";
 
 export default function SignupForm() {
   const [email, setEmail] = useState("");

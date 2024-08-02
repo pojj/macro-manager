@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import signInUser from "@utils/signInUser";
+import signInUser from "@lib/signInUser";
 
 export default function SignInForm() {
   const [email, setEmail] = useState("");

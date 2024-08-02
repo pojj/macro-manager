@@ -1,5 +1,5 @@
 // Hoist env imports
-import "@utils/initializeEnv.js";
+import "@lib/initializeEnv.js";
 
 import { Inter } from "next/font/google";
 import "@styles/globals.css";
