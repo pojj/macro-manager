@@ -26,7 +26,17 @@ export default async function middleware(req) {
         user.lastName
       );
 
-      const response = NextResponse.next();
+      let response;
+
+      // Redirect user to user page if they are already logged in and trying to access sign in/up
+      if (url.pathname == "/signin" || url.pathname == "/signup") {
+        response = NextResponse.redirect(
+          new URL("/user/" + user.id, req.url),
+          "replace"
+        );
+      } else {
+        response = NextResponse.next();
+      }
 
       // Set the new token in the cookies
       response.cookies.set("authToken", newjwt, {
@@ -36,14 +46,6 @@ export default async function middleware(req) {
         secure: process.env.NODE_ENV !== "production",
         path: "/",
       });
-
-      // Redirect user to user page if they are already logged in and trying to access sign in/up
-      if (url.pathname == "/signin" || url.pathname == "/signup") {
-        return NextResponse.redirect(
-          new URL("/user/" + user.id, req.url),
-          "replace"
-        );
-      }
 
       return response;
     } catch (error) {
