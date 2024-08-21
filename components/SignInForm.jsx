@@ -24,7 +24,8 @@ export default function SignInForm() {
       if (message.success == false) {
         throw new Error(message.body.error);
       }
-      router.push("user/" + message.body.id);
+      router.replace("user/" + message.body.id);
+      router.refresh();
     } catch (error) {
       // Display only 1 error at a time
       let errors = error.message.split("\n");

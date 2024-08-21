@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import authorizeUser from "@actions/authorizeUser";
-import signOut from "@lib/auth/signOut";
+import signOut from "@actions/signOut";
 import capitalizeName from "@lib/capitalizeName";
 
 export default async function Nav() {

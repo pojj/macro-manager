@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Schema, models } from "mongoose";
+const { Schema, models } = mongoose;
 
 const userSchema = new Schema({
   email: {
@@ -13,8 +13,20 @@ const userSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   age: { type: Number, required: false, min: [0, "Invalid age"] },
   weight: { type: Number, required: false, min: [0, "Invalid weight"] },
+
+  // Referenced documents for tracked meals
+  trackedMeals: [{ type: Schema.Types.ObjectId, ref: "Meal", required: false }],
+
+  // Referenced documents for created recipes
+  createdRecipes: [
+    { type: Schema.Types.ObjectId, ref: "Recipe", required: false },
+  ],
+
+  // Referenced documents for saved recipes
+  savedRecipes: [
+    { type: Schema.Types.ObjectId, ref: "Recipe", required: false },
+  ],
 });
 
-const User = (models.User = models.User || mongoose.model("User", userSchema));
-
+const User = models.User || mongoose.model("User", userSchema);
 export default User;
