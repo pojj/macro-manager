@@ -21,11 +21,6 @@ const userSchema = new Schema({
   createdRecipes: [
     { type: Schema.Types.ObjectId, ref: "Recipe", required: false },
   ],
-
-  // Referenced documents for saved recipes
-  savedRecipes: [
-    { type: Schema.Types.ObjectId, ref: "Recipe", required: false },
-  ],
 });
 
 const User = models.User || mongoose.model("User", userSchema);
