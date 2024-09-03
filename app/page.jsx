@@ -1,5 +1,3 @@
-import Feed from "@components/Feed";
-
 export default function Home() {
   return (
     <section className="mt-16 w-full flex justify-center items-center flex-col">
@@ -9,11 +7,8 @@ export default function Home() {
         </span>
       </h1>
       <p className="text-center md:w-1/2 text-lg font-normal text-gray-500 lg:text-xl px-5">
-        Track macrooos and recipes and gainz
+        Track macros, recipes, and gainz
       </p>
-
-      <p> Newest recipe additions</p>
-      <Feed />
     </section>
   );
 }

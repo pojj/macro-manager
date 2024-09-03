@@ -21,7 +21,7 @@ export async function DELETE(req, { params }) {
       );
     }
 
-    // Optionally, remove the reference from the user (if your schema stores it)
+    // Remove the reference from the user
     await User.updateOne(
       { createdRecipes: recipeId },
       { $pull: { createdRecipes: recipeId } }

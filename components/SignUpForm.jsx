@@ -36,13 +36,13 @@ export default function SignupForm() {
       }
 
       alert("Registation successful!");
-      console.log(formData);
 
       message = await signInUser(formData);
       if (message.success == false) {
         throw new Error(message.body.error);
       }
       router.push("user/" + message.body.id);
+      router.refresh();
     } catch (error) {
       // Display 1 error at a time
       let errors = error.message.split("\n");

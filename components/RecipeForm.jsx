@@ -94,19 +94,6 @@ const RecipeForm = ({ userId }) => {
         }),
       });
 
-      const recipe = await recipeResponse.json();
-
-      // Update the user's created recipes
-      await fetch(`/api/user/${userId}/add-recipe`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          recipeId: recipe._id,
-        }),
-      });
-
       // Reset form
       setRecipeName("");
       setSelectedIngredients([]);

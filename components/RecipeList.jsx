@@ -78,8 +78,18 @@ export default function RecipeList({ userId }) {
               key={recipe._id}
               className="p-4 bg-white border-orange-500 border-2 rounded-md"
             >
-              <h3 className="text-xl font-semibold">{recipe.title}</h3>
-              <p className="mt-2 text-gray-700">{recipe.instructions}</p>
+              <div className="flex">
+                <span className="text-xl font-semibold">{recipe.title}</span>
+                {/* Display delete button if the user is authorized */}
+                {isAuthorized && (
+                  <button
+                    onClick={() => handleDelete(meal._id)}
+                    className="px-2 py-1 ml-auto bg-red-500 text-white rounded-md hover:bg-red-700 transition-colors text-sm"
+                  >
+                    Delete
+                  </button>
+                )}
+              </div>
               {recipe.ingredients.length > 0 && (
                 <ul className="mt-2 list-disc list-inside">
                   {recipe.ingredients.map((ingredient, index) => (
@@ -89,15 +99,7 @@ export default function RecipeList({ userId }) {
                   ))}
                 </ul>
               )}
-              {/* Display delete button if the user is authorized */}
-              {isAuthorized && (
-                <button
-                  onClick={() => handleDelete(recipe._id)}
-                  className="mt-3 px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-700 transition-colors"
-                >
-                  Delete
-                </button>
-              )}
+              <p className="mt-2 text-gray-700">{recipe.instructions}</p>
             </li>
           ))}
         </ul>
