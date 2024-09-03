@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Meal and Recipe Tracker
+
+A simple web application for tracking meals and managing recipes, built with Next.js and MongoDB. The app allows users to log their meals, track calorie intake, and store recipes.
+
+## Features
+
+- **User Profile Management**: Users can create and edit their profiles, including details like name, email, age, and weight.
+- **Meal Tracking**: Users can log their meals, including details such as meal name, calories, date, and associated recipe.
+- **Recipe Management**: Users can create, view, and delete recipes. Each recipe contains ingredients and preparation instructions.
+- **Dashboard View**: A comprehensive dashboard to view user profile details, tracked meals, and stored recipes.
+
+## Technologies Used
+
+- **Frontend**: Next.js (App router)
+- **Backend**: Next.js route handlers
+- **Database**: MongoDB
+- **Styling**: Tailwind CSS
+- **Authentication**: JWT/cookies
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js and npm installed on your local machine.
+- MongoDB instance cloud-based dev on MongoDB Atlas.
+- A `.env.local` file with necessary environment variables (MongoDB connection string, secret keys).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+   ```bash
+   git clone https://github.com/pojj/macro-manager.git
+   ```
 
-## Learn More
+2. Change into the project directory:
 
-To learn more about Next.js, take a look at the following resources:
+   ```bash
+   cd macro-manager
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Install the dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm install
+   ```
 
-## Deploy on Vercel
+4. Create a `.env.local` file in the root of your project and add the following environment variables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```plaintext
+   MONGODB_URI=your_mongodb_connection_string
+   JWT_SECRET=your_secret_key
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Run the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+
+## Usage
+
+- **User Account**: Sign up by creating an account optionally tracking weight or other metrics.
+- **Dashboard**: View user details, track meals, and recipes.
+- **Track Meal**: Click on the "Track Meal" button to log a new meal, inputting meal details like name, calories, and associated recipe.
+- **Create Recipe**: Use the "Create Recipe" button to add a new recipe, specifying ingredients and instructions.
+- **Edit and Delete**: Edit your profile details or delete meals and recipes using the provided buttons on the dashboard.
