@@ -4,7 +4,7 @@ import { jwtVerify } from "jose";
 import { cookies } from "next/headers";
 
 export default async function authorizeUser() {
-  // Parse cookies from the request header
+  // Get cookies from the request header
   const cookieStore = cookies();
   const authToken = cookieStore.get("authToken");
 
@@ -22,6 +22,7 @@ export default async function authorizeUser() {
 
     const user = verified.payload;
 
+    // Return user info
     return {
       id: user.id,
       firstName: user.firstName,

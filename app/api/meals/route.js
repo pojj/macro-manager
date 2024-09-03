@@ -22,7 +22,7 @@ export async function POST(req) {
       name,
       description: description || "", // Use empty string if description is not provided
       calories,
-      recipe: recipe || null, // Optional field, use null if not provided
+      recipe: recipe || null,
       createdBy,
     });
 

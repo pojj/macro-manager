@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import connectToDB from "@lib/database";
 import User from "@models/user";
 
-// Connect to the database
 await connectToDB();
 
 // Define the GET function for handling the request

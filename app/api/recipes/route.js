@@ -6,6 +6,7 @@ import authorizeUser from "@actions/authorizeUser";
 
 await connectToDB();
 
+// Handle recipe creation
 export async function POST(req) {
   try {
     const { name, ingredients, instructions, createdBy } = await req.json();
@@ -50,6 +51,7 @@ export async function POST(req) {
   }
 }
 
+// Get list of recipes for meal
 export async function GET() {
   try {
     const recipes = await Recipe.find({});

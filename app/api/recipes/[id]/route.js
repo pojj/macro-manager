@@ -3,7 +3,6 @@ import connectToDB from "@lib/database";
 import Recipe from "@models/recipe";
 import User from "@models/user";
 
-// Connect to the database
 await connectToDB();
 
 // Define the DELETE function for handling recipe deletion
@@ -11,7 +10,6 @@ export async function DELETE(req, { params }) {
   const recipeId = params.id; // Recipe ID to delete
 
   try {
-    // Find and delete the recipe
     const recipe = await Recipe.findByIdAndDelete(recipeId);
 
     if (!recipe) {
