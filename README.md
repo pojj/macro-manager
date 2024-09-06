@@ -48,8 +48,13 @@ A simple web application for tracking meals and managing recipes, built with Nex
 4. Create a `.env.local` file in the root of your project and add the following environment variables:
 
    ```plaintext
-   MONGODB_URI=your_mongodb_connection_string
-   JWT_SECRET=your_secret_key
+   URL
+   NODE_ENV
+   MONGODB_URI
+   DBNAME
+   SALT_WORK_FACTOR
+   JWT_SECRET
+   JWT_EXPIRES_IN
    ```
 
 5. Run the development server:
@@ -59,6 +64,14 @@ A simple web application for tracking meals and managing recipes, built with Nex
    ```
 
 6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+
+7. To run in a docker container:
+
+   `docker build -t nextjs-docker .`
+
+   then
+
+   `docker run -p 3000:3000 --env-file .env.local nextjs-docker`
 
 ## Usage
 
