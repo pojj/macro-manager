@@ -9,8 +9,8 @@ export default function validateSignUpForm(formData) {
     errors.push("Must be a valid email");
   }
 
-  if (password.length < 6) {
-    errors.push("Password must be at least 6 characters long");
+  if (password.length < 8) {
+    errors.push("Password must be at least 8 characters long");
   }
 
   if (password !== confirmPassword) {
