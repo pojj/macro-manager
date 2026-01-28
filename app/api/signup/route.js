@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import createUser from "@utils/createUser";
+import createUser from "@lib/createUser";
 
 export async function GET() {
   return NextResponse.json(
