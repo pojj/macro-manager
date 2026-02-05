@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import validateSignUpForm from "@lib/validateSignUpForm";
 import signUpUser from "@lib/signUpUser";
+import signInUser from "@lib/signInUser";
 
 export default function SignupForm() {
   const [email, setEmail] = useState("");
@@ -12,6 +14,7 @@ export default function SignupForm() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
   async function handleSubmit(event) {
     event.preventDefault(); // Prevent default form submission
@@ -27,13 +30,19 @@ export default function SignupForm() {
     try {
       validateSignUpForm(formData);
 
-      // Server action
       let message = await signUpUser(formData);
       if (message.success == false) {
         throw new Error(message.body.error);
       }
 
-      alert("Registration successful!");
+      alert("Registation successful!");
+      console.log(formData);
+
+      message = await signInUser(formData);
+      if (message.success == false) {
+        throw new Error(message.body.error);
+      }
+      router.push("user/" + message.body.id);
     } catch (error) {
       // Display 1 error at a time
       let errors = error.message.split("\n");

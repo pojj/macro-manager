@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import createUser from "@lib/createUser";
+import authenticateUser from "@lib/authenticateUser";
 
 export async function GET() {
   return NextResponse.json(
@@ -21,13 +21,7 @@ export async function POST(req) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  const requiredFields = [
-    "email",
-    "password",
-    "confirmPassword",
-    "firstName",
-    "lastName",
-  ];
+  const requiredFields = ["email", "password"];
 
   const hasRequiredFields = requiredFields.every((field) =>
     body.hasOwnProperty(field)
@@ -37,5 +31,5 @@ export async function POST(req) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
-  return await createUser(body);
+  return await authenticateUser(body);
 }

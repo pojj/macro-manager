@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 import signInUser from "@lib/signInUser";
 
 export default function SignInForm() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,10 +20,11 @@ export default function SignInForm() {
     };
 
     try {
-      // Server action
-      // await signInUser(formData);
-
-      alert("Sign in successful!");
+      const message = await signInUser(formData);
+      if (message.success == false) {
+        throw new Error(message.body.error);
+      }
+      router.push("user/" + message.body.id);
     } catch (error) {
       // Display only 1 error at a time
       let errors = error.message.split("\n");
