@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { jwtVerify } from "jose";
-import generateAccessToken from "@lib/auth/generateAccessToken";
+import generateAccessToken from "@lib/generateAccessToken";
 
 // Middleware to renew auth token
 export default async function middleware(req) {
