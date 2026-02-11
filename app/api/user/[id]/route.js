@@ -9,8 +9,6 @@ await connectToDB();
 export async function GET(req, { params }) {
   const { id } = params;
 
-  await connectToDB();
-
   try {
     const user = await authorizeUser(); // Retrieve the authorized user
 
