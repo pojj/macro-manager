@@ -2,7 +2,7 @@ import Feed from "@components/Feed";
 
 export default function Home() {
   return (
-    <section className="w-full flex justify-center items-center flex-col">
+    <section className="mt-16 w-full flex justify-center items-center flex-col">
       <h1 className="text-center mb-6 mt-20 px-4 font-extrabold text-7xl sm:text-8xl">
         <span className="text-transparent bg-clip-text bg-gradient-to-r to-yellow-400 from-orange-600">
           Macro Manager

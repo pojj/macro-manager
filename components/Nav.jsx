@@ -9,7 +9,7 @@ export default async function Nav() {
   const user = await authorizeUser();
 
   return (
-    <nav className="w-full mb-16 pt-3 px-4">
+    <nav className="w-full pt-3 px-4">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/">
           <Image

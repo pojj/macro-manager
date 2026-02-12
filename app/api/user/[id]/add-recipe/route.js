@@ -1,11 +1,17 @@
 import { NextResponse } from "next/server";
 import connectToDB from "@lib/database";
 import User from "@models/user";
+import authorizeUser from "@actions/authorizeUser";
 
 await connectToDB();
 
 export async function PUT(req, { params }) {
   const userId = params.id;
+  const activeUser = await authorizeUser();
+
+  if (!activeUser || activeUser.id != userId) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
 
   try {
     const { recipeId } = await req.json();
