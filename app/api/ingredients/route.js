@@ -3,6 +3,8 @@ import connectToDB from "@lib/database";
 import Ingredient from "@models/ingredient";
 
 await connectToDB();
+
+// Get list of ingredients for recipe creation
 export async function GET() {
   try {
     const ingredients = await Ingredient.find({});
@@ -15,6 +17,7 @@ export async function GET() {
   }
 }
 
+// Add new ingredient
 export async function POST(req) {
   try {
     const body = await req.json();

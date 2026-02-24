@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import Meal from "@models/meal"; // Make sure the path is correct to your Meal model
+import Meal from "@models/meal";
 import User from "@models/user";
 import connectToDB from "@lib/database";
 
