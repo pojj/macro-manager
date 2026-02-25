@@ -1,6 +1,8 @@
-# Meal and Recipe Tracker
+# Macro Manager
 
-A simple web application for tracking meals and managing recipes, built with Next.js and MongoDB. The app allows users to log their meals, track calorie intake, and store recipes.
+A web application for tracking meals and managing recipes, built with Next.js and MongoDB. The app allows users to log their meals, track calorie intake, and store recipes.
+
+![Dashboard Example Image](MacroManager.png)
 
 ## Features
 
