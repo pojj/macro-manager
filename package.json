@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed:ingredients": "node scripts/seed-ingredients.js",
+    "seed:recipes": "node scripts/seed-recipes.js",
+    "seed:meals": "node scripts/seed-meals.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -19,6 +22,7 @@
     "sharp": "^0.33.5"
   },
   "devDependencies": {
+    "dotenv": "^17.3.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",

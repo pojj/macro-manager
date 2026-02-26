@@ -8,6 +8,9 @@ const MealForm = ({ userId }) => {
   const [mealName, setMealName] = useState("");
   const [description, setDescription] = useState(""); // State for meal description
   const [calories, setCalories] = useState("");
+  const [protein, setProtein] = useState("");
+  const [carbs, setCarbs] = useState("");
+  const [fats, setFats] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -40,6 +43,9 @@ const MealForm = ({ userId }) => {
           name: mealName,
           description: description, // Include the description in the payload
           calories: parseInt(calories, 10),
+          protein: protein ? parseInt(protein, 10) : 0,
+          carbs: carbs ? parseInt(carbs, 10) : 0,
+          fats: fats ? parseInt(fats, 10) : 0,
           recipe: selectedRecipe ? selectedRecipe : null,
           createdBy: userId, // Assuming the userId should be associated with the meal
         }),
@@ -52,6 +58,9 @@ const MealForm = ({ userId }) => {
         setMealName("");
         setDescription(""); // Reset description field
         setCalories("");
+        setProtein("");
+        setCarbs("");
+        setFats("");
         setSelectedRecipe(null);
       } else {
         const errorData = await mealResponse.json();
@@ -102,8 +111,52 @@ const MealForm = ({ userId }) => {
           value={calories}
           onChange={(e) => setCalories(e.target.value)}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          min="0"
+          placeholder="0"
           required
         />
+      </div>
+
+      <div className="grid grid-cols-3 gap-4 mb-4">
+        <div>
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Protein (g):
+          </label>
+          <input
+            type="number"
+            min="0"
+            value={protein}
+            onChange={(e) => setProtein(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="0"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Carbs (g):
+          </label>
+          <input
+            type="number"
+            min="0"
+            value={carbs}
+            onChange={(e) => setCarbs(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="0"
+          />
+        </div>
+        <div>
+          <label className="block text-gray-700 text-sm font-bold mb-2">
+            Fats (g):
+          </label>
+          <input
+            type="number"
+            min="0"
+            value={fats}
+            onChange={(e) => setFats(e.target.value)}
+            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            placeholder="0"
+          />
+        </div>
       </div>
 
       <div className="mb-4">

@@ -7,7 +7,7 @@ await connectToDB();
 
 export async function POST(req) {
   try {
-    const { name, description, calories, recipe, createdBy } = await req.json();
+    const { name, description, calories, protein, carbs, fats, recipe, createdBy } = await req.json();
 
     // Validate required fields
     if (!name || !calories || !createdBy) {
@@ -17,11 +17,20 @@ export async function POST(req) {
       );
     }
 
+    // Ensure macros are valid numbers (handles undefined, null, NaN, or string values)
+    const toNum = (v) => {
+      const n = Number(v);
+      return typeof n === "number" && !isNaN(n) && n >= 0 ? n : 0;
+    };
+
     // Create a new meal object
     const newMeal = new Meal({
       name,
       description: description || "", // Use empty string if description is not provided
       calories,
+      protein: toNum(protein),
+      carbs: toNum(carbs),
+      fats: toNum(fats),
       recipe: recipe || null,
       createdBy,
     });

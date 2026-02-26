@@ -91,18 +91,19 @@ export default function MealSearch({ userId }) {
               <div className="flex">
                 <span className="text-xl font-semibold">{meal.name}</span>
               </div>
-              <p className="text-gray-600">Calories: {meal.calories}</p>
+              <p className="text-gray-600">
+                Calories: {meal.calories}
+                {(meal.protein != null || meal.carbs != null || meal.fats != null) && (
+                  <span className="ml-2 text-gray-500">
+                    | P: {meal.protein ?? 0}g C: {meal.carbs ?? 0}g F: {meal.fats ?? 0}g
+                  </span>
+                )}
+              </p>
               {meal.description && (
                 <p className="mt-2 text-gray-700">{meal.description}</p>
               )}
               <p className="mt-2 text-gray-700">
-                Date:{" "}
-                {new Date(meal.date).toLocaleDateString() +
-                  ", " +
-                  new Date(meal.date).toLocaleTimeString("en-GB", {
-                    hour: "2-digit",
-                    minute: "2-digit",
-                  })}
+                Date: {new Date(meal.date).toLocaleDateString()}
               </p>
               {meal.recipe && (
                 <p className="mt-2 text-gray-700">

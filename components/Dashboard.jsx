@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import MealList from "@components/MealList";
 import RecipeList from "@components/RecipeList";
+import MacroProgress from "@components/MacroProgress";
 import Link from "next/link";
 
 const Dashboard = ({ userId }) => {
@@ -206,6 +207,17 @@ const Dashboard = ({ userId }) => {
               </form>
             )}
           </div>
+
+          {/* Daily Progress Panel */}
+          {isAuthorizedUser && (
+            <MacroProgress
+              userId={userId}
+              user={user}
+              isAuthorized={isAuthorizedUser}
+              onTargetsUpdated={setUser}
+            />
+          )}
+
 
           {isAuthorizedUser && (
             <div className="bg-white shadow-md rounded-lg p-6 mb-4">

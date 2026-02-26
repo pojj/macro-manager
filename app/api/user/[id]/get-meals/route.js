@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import User from "@models/user";
 import connectToDB from "@lib/database";
 
-await connectToDB;
+await connectToDB();
 
 export async function GET(req, { params }) {
   const userId = params.id;

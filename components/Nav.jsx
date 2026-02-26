@@ -29,6 +29,12 @@ export default async function Nav() {
             >
               Track Meal
             </Link>
+            <Link
+              href="/scan"
+              className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-700 transition"
+            >
+              Scan Item
+            </Link>
 
             <form action={signOut}>
               <button
